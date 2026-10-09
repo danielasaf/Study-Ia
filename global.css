@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --cor-primaria:    #6C63FF;
+  --cor-primaria-hover: #574fd6;
+  --cor-secundaria:  #4CAF50;
+  --cor-fundo:       #F4F6FB;
+  --cor-texto:       #1A1A2E;
+  --cor-texto-suave: #6B7280;
+  --cor-card:        #FFFFFF;
+  --cor-borda:       #E0E0E0;
+  --cor-erro:        #EF4444;
+  --cor-sucesso:     #22C55E;
+  --fonte:           'Inter', sans-serif;
+  --raio:            12px;
+  --sombra:          0 4px 24px rgba(0, 0, 0, 0.08);
+  --transicao:       0.2s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fonte);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--cor-primaria);
+  text-decoration: none;
+  transition: opacity var(--transicao);
+}
+
+a:hover { opacity: 0.8; }
+
+/* ── Botões ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: var(--raio);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background var(--transicao), opacity var(--transicao);
+  width: 100%;
+}
+
+.btn-primario {
+  background-color: var(--cor-primaria);
+  color: #fff;
+}
+
+.btn-primario:hover { background-color: var(--cor-primaria-hover); }
+
+.btn-primario:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Inputs ── */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.input-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--cor-texto);
+}
+
+.input-group input {
+  padding: 12px 16px;
+  border: 1.5px solid var(--cor-borda);
+  border-radius: var(--raio);
+  font-size: 1rem;
+  font-family: var(--fonte);
+  background: #fff;
+  color: var(--cor-texto);
+  transition: border-color var(--transicao);
+  outline: none;
+}
+
+.input-group input:focus {
+  border-color: var(--cor-primaria);
+}
+
+.input-group input.erro {
+  border-color: var(--cor-erro);
+}
+
+/* ── Mensagens ── */
+.mensagem {
+  padding: 12px 16px;
+  border-radius: var(--raio);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+  display: none;
+}
+
+.mensagem.erro {
+  background: #FEE2E2;
+  color: var(--cor-erro);
+  display: block;
+}
+
+.mensagem.sucesso {
+  background: #DCFCE7;
+  color: var(--cor-sucesso);
+  display: block;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--cor-card);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 32px;
+}
