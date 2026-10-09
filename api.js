@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:6767"; // ✅ Porta atualizada
+const BASE_URL = "https://study-ia-4j2k.onrender.com";
 
 function getToken() {
   return localStorage.getItem("study_token");
