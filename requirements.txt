@@ -8,4 +8,4 @@ passlib
 python-multipart
 python-dotenv
 bcrypt
-
+email-validator
