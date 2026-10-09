@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Study IA — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/dashboard.css"/>
+</head>
+<body>
+
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon">⚡</span>
+      <span class="logo-text">Study <strong>IA</strong></span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-item active">
+        <span class="nav-icon">🏠</span> Dashboard
+      </a>
+      <a href="novo-plano.html" class="nav-item">
+        <span class="nav-icon">➕</span> Novo Plano
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📚</span> Meus Planos
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">📊</span> Progresso
+      </a>
+      <a href="#" class="nav-item">
+        <span class="nav-icon">⚙️</span> Configurações
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-info">
+        <div class="user-avatar" id="user-avatar">D</div>
+        <div class="user-details">
+          <span class="user-name" id="user-name">Carregando...</span>
+          <span class="user-email" id="user-email"></span>
+        </div>
+      </div>
+      <button class="btn-logout" onclick="logout()">Sair</button>
+    </div>
+  </aside>
+
+
+  <main class="main-content">
+
+    <header class="topbar">
+      <div>
+        <h1 class="topbar-title">Olá, <span id="topbar-nome">Daniel</span> 👋</h1>
+        <p class="topbar-sub">Aqui está o resumo dos seus estudos hoje.</p>
+      </div>
+      <a href="novo-plano.html" class="btn-primary">+ Novo Plano</a>
+    </header>
+
+
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">📚</div>
+        <div class="stat-info">
+          <span class="stat-value">0</span>
+          <span class="stat-label">Planos Ativos</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">✅</div>
+        <div class="stat-info">
+          <span class="stat-value">0</span>
+          <span class="stat-label">Tarefas Concluídas</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🔥</div>
+        <div class="stat-info">
+          <span class="stat-value">0</span>
+          <span class="stat-label">Dias Seguidos</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">⏱️</div>
+        <div class="stat-info">
+          <span class="stat-value">0h</span>
+          <span class="stat-label">Horas Estudadas</span>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Meus Planos de Estudo</h2>
+        <a href="novo-plano.html" class="link-ver-todos">Ver todos →</a>
+      </div>
+
+      <div class="empty-state" id="empty-planos">
+        <div class="empty-icon">🎯</div>
+        <h3>Nenhum plano ainda</h3>
+        <p>Crie seu primeiro plano de estudo com IA e comece a aprender de forma inteligente!</p>
+        <a href="novo-plano.html" class="btn-primary">Criar meu primeiro plano</a>
+      </div>
+    </section>
+
+  </main>
+
+    <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+
+    if (!getToken()) {
+      window.location.href = "index.html";
+    }
+
+
+    const usuario = JSON.parse(localStorage.getItem("study_usuario") || "{}");
+    if (usuario.nome) {
+      document.getElementById("user-name").textContent   = usuario.nome;
+      document.getElementById("user-email").textContent  = usuario.email;
+      document.getElementById("topbar-nome").textContent = usuario.nome;
+      document.getElementById("user-avatar").textContent = usuario.nome[0].toUpperCase();
+    }
+
+    function logout() {
+      removerToken();
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>
