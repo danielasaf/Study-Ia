@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Study IA — Cadastro</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/pages/auth.css" />
+</head>
+<body>
+
+  <div class="auth-container">
+
+ 
+    <div class="auth-banner">
+      <div class="logo">Study <span>IA</span></div>
+      <p>Comece agora e transforme sua forma de estudar com inteligência artificial.</p>
+      <ul class="features">
+        <li>Planos de estudo personalizados com IA</li>
+        <li>Resumos dinâmicos e didáticos</li>
+        <li>Roteiros de vídeo explicativos</li>
+        <li>Mini-testes para fixar o conteúdo</li>
+      </ul>
+    </div>
+
+
+    <div class="auth-form-area">
+      <div class="auth-form-box">
+
+        <h1>Crie sua conta 🚀</h1>
+        <p class="subtitulo">É grátis e leva menos de 1 minuto.</p>
+
+        <div id="mensagem" class="mensagem"></div>
+
+        <form id="form-cadastro" novalidate>
+
+          <div class="input-group">
+            <label for="nome">Nome completo</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Seu nome"
+              autocomplete="name"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="email">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="seu@email.com"
+              autocomplete="email"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="senha">Senha</label>
+            <input
+              type="password"
+              id="senha"
+              name="senha"
+              placeholder="Mínimo 6 caracteres"
+              autocomplete="new-password"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="confirmar-senha">Confirmar senha</label>
+            <input
+              type="password"
+              id="confirmar-senha"
+              name="confirmar-senha"
+              placeholder="Repita a senha"
+              autocomplete="new-password"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primario" id="btn-cadastro">
+            Criar conta
+          </button>
+
+        </form>
+
+        <div class="rodape">
+          Já tem conta? <a href="index.html">Fazer login</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+
+</body>
+</html>
